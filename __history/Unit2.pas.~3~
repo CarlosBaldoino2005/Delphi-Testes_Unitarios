@@ -1,0 +1,35 @@
+unit Unit2;
+
+interface
+uses
+  DUnitX.TestFramework,uPessoa;
+
+type
+
+  [TestFixture]
+  TMyTestObject = class(TObject)
+  private
+    FPessoa : TPessoa;
+  public
+    [Setup]
+    procedure Setup;
+    [TearDown]
+    procedure TearDown;
+  end;
+
+implementation
+
+procedure TMyTestObject.Setup;
+begin
+  FPessoa := TPessoa.Create;
+end;
+
+procedure TMyTestObject.TearDown;
+begin
+  FPessoa.Free;
+end;
+
+
+initialization
+  TDUnitX.RegisterTestFixture(TMyTestObject);
+end.

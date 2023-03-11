@@ -1,0 +1,25 @@
+unit uPessoa;
+
+interface
+
+type
+  TPessoa = class
+    public
+      function TratarCPF(AValue : String):String;
+  end;
+
+implementation
+
+{ TPessoa }
+
+function TPessoa.TratarCPF(AValue: String): String;
+var I : Integer;
+begin
+  result := '';
+  for I := 1 to length(AValue) do begin
+    if AValue[i] in ['0','1','2','3','4','5','6','7','8','9'] then
+      result := result + AValue[i];
+  end;
+end;
+
+end.

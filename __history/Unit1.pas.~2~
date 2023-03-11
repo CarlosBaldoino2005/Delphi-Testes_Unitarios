@@ -1,0 +1,40 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+
+type
+  TPessoa = class
+    public
+      function validaCPF(AValue : String):String;
+  end;
+  TForm1 = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+{ TPessoa }
+
+function TPessoa.validaCPF(AValue: String): String;
+var I : Integer;
+begin
+  result := '';
+  for I := 1 to length(AValue) do begin
+    if AValue[i] in ['0','1','2','3','4','5','6','7','8','9'] then
+      result := result + AValue[i];
+  end;
+end;
+
+end.
